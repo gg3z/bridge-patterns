@@ -21,5 +21,9 @@ set(SOURCES
 # Add the executable
 add_executable(bridges ${SOURCES})
 
-# Specify the compiler if necessary (for clang)
-set(CMAKE_CXX_COMPILER C:/Program\ Files/LLVM/bin/clang++.exe)
+# Specify the compiler for each platform
+if(WIN32)
+  set(CMAKE_CXX_COMPILER C:/Program\ Files/LLVM/bin/clang++.exe)
+elseif(UNIX)
+  set(CMAKE_CXX_COMPILER /usr/bin/g++)
+endif()
